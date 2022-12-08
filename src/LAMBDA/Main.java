@@ -47,10 +47,7 @@ public class Main {
 
            // using lambda String length program.......
 
-        StringLength s1=(String str) ->{
-            return str.length();
-        };
-
-        System.out.println(s1.getLenght("Shivendra"));
+        StringLength s1=(String str) -> str.length();
+        System.out.println("Length of string::"+s1.getLenght("shivendra") );
     }
 }

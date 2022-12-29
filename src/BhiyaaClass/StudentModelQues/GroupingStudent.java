@@ -26,10 +26,26 @@ public class GroupingStudent {
         list1.add(student5);
 
         // here we have to group students bases on their subjects..........i want only IT
+        //and we can also count
 
         Map<String, Long> studentsBySubject =   list1.stream().
                                                     collect(Collectors.groupingBy
                                                              (Student::getSub,Collectors.counting()));
         System.out.println("students By Subject Counting::"+studentsBySubject);
+
+       // Map<String, List<Student>> studentsByAge = list1.stream().
+         //                                       collect(Collectors.groupingBy
+           //
+        //                                              (Student::getAge,Collectors.toList()));
+        Map<Integer, Long> AgeByStudent = list1
+                .stream()
+                .collect(
+                        Collectors.groupingBy(Student::getAge,Collectors.counting()));
+        System.out.println(AgeByStudent);
+
+        // group student who has abhi name...
+           Map<String,List<Student>> GroupingByNAme= list1.stream().
+                                      collect(Collectors.groupingBy(Student::getName));
+        System.out.println("Grouping by name::"+GroupingByNAme);
     }
 }

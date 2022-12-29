@@ -37,15 +37,16 @@ public class GroupingStudent {
          //                                       collect(Collectors.groupingBy
            //
         //                                              (Student::getAge,Collectors.toList()));
-        Map<Integer, Long> AgeByStudent = list1
+        Map<Integer, List<Student>> AgeByStudent = list1
                 .stream()
                 .collect(
-                        Collectors.groupingBy(Student::getAge,Collectors.counting()));
+                        Collectors.groupingBy(Student::getAge));
         System.out.println(AgeByStudent);
 
         // group student who has abhi name...
-           Map<String,List<Student>> GroupingByNAme= list1.stream().
-                                      collect(Collectors.groupingBy(Student::getName));
+           Map<String,Long> GroupingByNAme= list1.stream().
+                                      collect(Collectors.
+                                              groupingBy(Student::getName,Collectors.counting()));
         System.out.println("Grouping by name::"+GroupingByNAme);
     }
 }

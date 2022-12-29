@@ -30,5 +30,11 @@ public class AveragingANDGroupingBYSub {
                         .groupingBy(Student::getSub,
                                 Collectors.averagingInt(Student::getMarks)));
         System.out.println("Average marks::"+SubjectWiseAverage);
+
+        Map<String,Double> NameWiseAverage= list1.stream()
+                .collect(Collectors
+                        .groupingBy(Student::getSub,
+                                Collectors.averagingInt(Student::getAge)));
+        System.out.println("Average Age::"+NameWiseAverage);
 }
 }

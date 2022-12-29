@@ -25,6 +25,7 @@ public class DistinctSubStudent {
 
         // printing distinct subject list........
         list1.stream().map(Student::getSub).distinct().forEach(System.out::println);
+        list1.stream().map(Student::getAge).distinct().forEach(System.out::println);
 
     }
 }

@@ -1,4 +1,4 @@
-package BhiyaaClass;
+package BhiyaaClass.StudentModelQues;
 
 import BhiyaaClass.Model.Student;
 

@@ -1,4 +1,4 @@
-package BhiyaaClass;
+package BhiyaaClass.StudentModelQues;
 
 import BhiyaaClass.Model.Student;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FilteringStudentAge_Sub {
+public class FindingAvgMarks {
     public static void main(String[] args) {
 
 
@@ -21,14 +21,18 @@ public class FilteringStudentAge_Sub {
         list1.add(student2);
         list1.add(student3);
         list1.add(student4);
+// average with filtering......
+        Double AvgMarks =list1.stream().filter(s->s.getSub().equals("IT"))
+                .collect(Collectors.averagingDouble(Student::getMarks));
 
-        List<Student> ItStudentlist=   list1.stream().
-                                        filter(p->p.getSub().equals("IT") && p.getAge()<=19 )
-                                       .collect(Collectors.toList());
-        System.out.println("It student list::"+ItStudentlist);
+        System.out.println("Average marks of student::"+AvgMarks);
 
-        List<Student> Age19Studentlist=   list1.stream().
-                                         filter(a->a.getAge()==19).collect(Collectors.toList());
-        System.out.println("Age 19 students list::"+Age19Studentlist);
+    // average with out filtering................
+
+        Double AvgMarkswithOutFilter =list1.stream().
+                       collect(Collectors.averagingDouble(Student::getMarks));
+
+        System.out.println("Average marks of student with out filter::"+AvgMarkswithOutFilter);
+
     }
 }
